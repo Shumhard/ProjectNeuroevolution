@@ -1,0 +1,9 @@
+# use glob syntax 
+syntax: glob
+
+# Ignore folders
+*/**/bin/Debug
+*/**/bin/Release
+*\obj
+*\packages
+*\.vs
