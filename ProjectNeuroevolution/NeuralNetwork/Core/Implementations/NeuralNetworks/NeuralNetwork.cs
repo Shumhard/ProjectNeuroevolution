@@ -117,9 +117,7 @@ namespace NeuralNetwork.Core.Implementations.NeuralNetworks
         /// </summary>
         private void CreateInputLayer(int numberOfInputNeurons)
         {
-            var inputLayer = NeuralLayerFactory.CreateNeuralLayer(numberOfInputNeurons, new RectifiedActivationFuncion(), new WeightedSumFunction());
-            inputLayer.Neurons.ForEach(x => x.AddInputSynapse(0));
-            this.AddLayer(inputLayer);
+            this.AddLayer(NeuralLayerFactory.CreateInputNeuralLayer(numberOfInputNeurons));
         }
 
         /// <summary>

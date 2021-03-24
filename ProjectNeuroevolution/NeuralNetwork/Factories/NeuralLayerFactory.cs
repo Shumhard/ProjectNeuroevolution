@@ -1,4 +1,5 @@
 ﻿using NeuralNetwork.Core.Functions;
+using NeuralNetwork.Core.Implementations.Functions;
 using NeuralNetwork.Core.Implementations.Layers;
 using NeuralNetwork.Core.Implementations.Neurons;
 using NeuralNetwork.Core.Layers;
@@ -23,6 +24,13 @@ namespace NeuralNetwork.Factories
             }
 
             return layer;
+        }
+
+        public static ILayer CreateInputNeuralLayer(int numberOfNeurons)
+        {
+            var neuralLayer = NeuralLayerFactory.CreateNeuralLayer(numberOfNeurons, new RectifiedActivationFuncion(), new WeightedSumFunction());
+            neuralLayer.Neurons.ForEach(x => x.AddInputSynapse(0));
+            return neuralLayer;
         }
     }
 }
